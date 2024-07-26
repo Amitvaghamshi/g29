@@ -1,7 +1,9 @@
 const express=require("express");
 const fs=require("fs");
+const cors = require('cors');
 
 let app=express();
+app.use(cors()); //HANDLING CORS ERR
 app.use(express.json()); // MIDDLEWARE
 
 app.get("/todos",(req,res)=>{
@@ -40,8 +42,24 @@ app.delete("/todos/:id",(req,res)=>{
      res.send("DATA DELETED");
 })
 
+app.put("/toggle/:id",(req,res)=>{
+     let todo_id=req.params.id;
+     let data=fs.readFileSync("./db.json","utf-8");
+     let parsed_data=JSON.parse(data);
+     let all_todos=parsed_data.todos;
+     let new_todos=all_todos.map((el)=>{
+          if(el.id==todo_id){
+              el.isCompleted= !el.isCompleted;
+              return el;
+          }
+          return el;
+     });
+     parsed_data.todos=new_todos;
+     fs.writeFileSync("./db.json",JSON.stringify(parsed_data));
 
-//localhost:5000/todos?id=4
+     res.send("DATA UPDATED");
+})
+
 
 app.listen(5000,()=>{
     console.log("SERVER IS STARTED ON PORT 5000");
