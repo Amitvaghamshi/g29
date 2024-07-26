@@ -27,6 +27,8 @@ app.post("/todos/add",(req,res)=>{
 
 app.delete("/todos/:id",(req,res)=>{
      let todo_id=req.params.id;
+     console.log(todo_id);
+
      let data=fs.readFileSync("./db.json","utf-8");
      let parsed_data=JSON.parse(data);
      let all_todos=parsed_data.todos;
@@ -37,7 +39,7 @@ app.delete("/todos/:id",(req,res)=>{
          return true;
      });
      parsed_data.todos=new_data;
-     fs.writeFileSync("./db.jsob",JSON.stringify(parsed_data));
+     fs.writeFileSync("./db.json",JSON.stringify(parsed_data));
 
      res.send("DATA DELETED");
 })

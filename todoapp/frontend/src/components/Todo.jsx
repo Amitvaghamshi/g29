@@ -1,5 +1,6 @@
 import React from "react";
 import SingleTodo from "./SingleTodo";
+import AddTodo from "./AddTodo";
 
 function Todo(){
     let [todos,setTodos]=React.useState([]);
@@ -15,10 +16,11 @@ function Todo(){
     },[])
 
     return (<div> 
+        <AddTodo fetchData={fetchData} />
         {
              todos.map((el)=>{
                 return (
-                    <SingleTodo id={el.id} todo={el.todo} isCompleted={el.isCompleted} />
+                    <SingleTodo  id={el.id} todo={el.todo} isCompleted={el.isCompleted} fetchData={fetchData} />
                 )
              })
         }
