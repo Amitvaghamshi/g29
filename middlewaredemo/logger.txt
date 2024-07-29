@@ -1,0 +1,8 @@
+GET request is made on url /about on time Mon Jul 29 2024 17:27:08 GMT+0530 (India Standard Time)GET request is made on url /contact on time Mon Jul 29 2024 17:28:06 GMT+0530 (India Standard Time)GET request is made on url /contact on time Mon Jul 29 2024 17:28:39 GMT+0530 (India Standard Time)
+GET request is made on url /contact on time Mon Jul 29 2024 17:28:39 GMT+0530 (India Standard Time)
+GET request is made on url /contact on time Mon Jul 29 2024 17:28:40 GMT+0530 (India Standard Time)
+GET  request is made on url /about  on time Mon Jul 29 2024 17:50:27 GMT+0530 (India Standard Time)
+GET  request is made on url /index.js  on time Mon Jul 29 2024 18:09:55 GMT+0530 (India Standard Time)
+GET  request is made on url /index.html  on time Mon Jul 29 2024 18:09:59 GMT+0530 (India Standard Time)
+GET  request is made on url /css/index.css  on time Mon Jul 29 2024 18:12:16 GMT+0530 (India Standard Time)
+GET  request is made on url /css/index.css  on time Mon Jul 29 2024 18:12:32 GMT+0530 (India Standard Time)
