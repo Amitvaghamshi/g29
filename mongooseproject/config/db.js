@@ -36,6 +36,9 @@
 // let StudentModel=mongoose.model("student",studentSchema);
 
 const mongoose=require("mongoose");
-const connection=mongoose.connect("mongodb://127.0.0.1:27017/infodb");
+require('dotenv').config()
+
+
+const connection=mongoose.connect(process.env.MONGO_URL);
 
 module.exports={connection};

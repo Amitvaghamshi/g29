@@ -1,6 +1,6 @@
-
 const express=require("express");
 const studentRouter=express.Router();
+const {StudentModel}=require("../models/student.model.js");
 
 studentRouter.post("/add",async(req,res)=>{
     const payload=req.body;
@@ -9,6 +9,7 @@ studentRouter.post("/add",async(req,res)=>{
          await student.save();
          res.send("Student info saved");
     }catch(err){
+      console.log(err);
       res.send("something went wrong");
     }
 })
