@@ -31,7 +31,8 @@ studentRouter.delete("/delete/:id", async(req,res)=>{
   }catch(err){
       res.send("something went wrong");
   }
-    
 })
+
+
 
 module.exports={studentRouter};
