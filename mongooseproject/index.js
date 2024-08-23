@@ -3,6 +3,10 @@ const {connection}=require("./config/db.js");
 const {studentRouter}=require("./routes/student.router.js");
 require('dotenv').config()
 const {UserModel}=require("./models/user.model.js");
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+
+
 
 
 const app=express();
@@ -16,21 +20,34 @@ app.get("/data",(req,res)=>{
      // const {token}=req.params;
       const token=req.headers.authorization;
       //console.log(req.headers);
-      if(token=="abcd"){
-        res.send("THIS IS DATA");
-      }else{
-        res.send("INVALID TOKEN");
+      try{
+        jwt.verify(token, process.env.SECRET_KEY, function(err, decoded) {
+               if(decoded){
+                  res.send("This is data");
+               }else{
+                res.send("Login first");
+               }
+        });
+      }catch(err){
+          res.send("Login first");
       }
 })
 
 app.post("/user/sigin", async(req,res)=>{
     const {email ,password} =req.body;
     try{
-       const user= await UserModel.find({email,password});
+       const user= await UserModel.find({email});
        if(user.length>0){
-         res.send({message:"Login success",token:"abcd"});
+        bcrypt.compare(password, user[0].password, function(err, result) {
+                  if(result){
+                    var token = jwt.sign({ class: 'g29' }, process.env.SECRET_KEY, { expiresIn: 40 });
+                    res.send({message:"Login success",token:token});
+                  }else{
+                    res.send("Wrong password");
+                  }
+        });
        }else{
-        res.send("Wrong credentials");
+        res.send("Wrong Emial id");
        }
     }catch(err){
         res.send("something went wrong");
@@ -39,11 +56,13 @@ app.post("/user/sigin", async(req,res)=>{
 
 
 app.post("/user/ragister",async (req,res)=>{
-      const payload=req.body;
-      try{
-         const user=new UserModel(payload);
-         await user.save();
-         res.send("user info saved");
+      const {name,email,password,mobile}=req.body;
+      try{ 
+        bcrypt.hash(password, 5, async (err, hash)=> {
+          const user=new UserModel({name,email,password:hash,mobile});
+          await user.save();
+          res.send("user info saved");
+        }); 
       }catch(err){
         console.log(err);
         res.send("SOMETHING WENT WRONG");
