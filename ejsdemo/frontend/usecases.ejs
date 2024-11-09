@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is usecases demo</h1>
+    <hr>
+
+    <!-- passing dynamic value -->
+    <h1>My name is <%= name  %> </h1>
+
+    <!-- write comment -->
+    <%# THIS IS COMMENT   %>
+
+    <!-- if(20>30){
+        // PRINT
+    }else{
+        // print
+    } -->
+
+    <% if(50>30){  %>
+        <h3>GREATER</h3>
+    <% }else{  %>
+        <h3>LESSER</h3>
+    <% }  %>
+
+   
+     <!-- IF ELSE CONDITIONS -->
+    <% if(marks>90){    %>
+           <h3>GRADE A</h3>
+    <% }else if(marks>80){ %>
+        <h3>GRADE B</h3>
+    <% }else if(marks>70){ %>
+        <h3>GRADE C</h3>
+    <% }else{ %>
+        <h3>FAIL</h3>
+    <% } %>
+
+    <!-- For loop -->
+    <% for(let i=0;i<4;i++){  %>
+        <h3>Hello world</h3>
+    <% } %>
+
+    <!-- WHILE LOOP -->
+    <% let j=0; %>
+    <%  while(j<5){  %>
+          <h4>Inside while</h4>
+      <%  j++;  %>
+    <% }  %>
+
+    <!-- ACCECING ARRAY -->
+     <li>  <%=  arr[0]  %>  </li>
+     <li>  <%=  arr[1]  %>  </li>
+     <li>  <%=  arr[2]  %>  </li>
+     <li>  <%=  arr[3]  %>  </li>
+     <% for(let i=0;i<arr.length;i++){  %>
+        <li>  <%= arr[i] %>  </li>
+     <% } %>
+
+
+    <% for(let x of arr){  %>
+        <li> <%= x %>  </li>
+    <% }  %>
+
+    <!-- FUNCTION CALL -->
+    <%  function abc(){
+          return "<h2> INSIDE FUNCTION  </h2>"
+    }   %>
+    <%- abc()  %>
+
+     
+
+
+
+
+
+</body>
+</html>

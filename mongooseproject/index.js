@@ -7,8 +7,6 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 
-
-
 const app=express();
 app.use(express.json());
 

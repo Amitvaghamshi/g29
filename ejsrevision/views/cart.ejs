@@ -1,0 +1,14 @@
+<%- include("partials/header") %>
+     
+    <%- include("partials/nav")  %>   
+    <h1>THIS IS YOUR CART</h1>
+
+    <%  for(let i=0;i<data.length;i++){ %>
+       <% let el=data[i]; %>
+       <%- include("partials/comment",el) %>
+    <% } %>
+
+   
+
+</body>
+</html>

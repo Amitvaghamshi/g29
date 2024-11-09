@@ -1,0 +1,12 @@
+<div style="border: 1px solid turquoise;border-radius: 20px;padding:15px ;" >
+    <h3>  <%= todo  %>   </h3>
+    <label for=""> IS COMPELETD :  <label for="" style="color: rebeccapurple;font-weight: 800;margin-right: 50px;" > <%= isCompleted?"YES":"NO"   %>    </label> </label> 
+    
+    <form style="display: inline;" action="/todos/toggle/<%= id%> " method="POST" >
+          <button type="submit" >MARK AS COMPLETED</button>
+    </form>
+     
+    <form style="display: inline;" action="/todos/delete/<%= id%>" method="POST">
+          <button type="submit">DELETE</button>
+    </form>
+</div>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Usecases of EJS</h2>
+
+    <h2>STUDENT GRADE</h2>
+   <%  if(marks>90){  %>
+        <h3>GRADE : A</h3>
+    <% }else if(marks>80){ %>
+        <h3>GRADE : B</h3>
+    <% }else if(marks>70){ %>
+        <h3>GRADE : C</h3>
+    <% }else{ %>
+        <h3>FAIL</h3>
+    <% } %>
+
+    <h2>STUDENT INFO</h2>
+   <% for(let i=0;i<names.length;i++){ %>
+        <li>  <%= names[i]%>   </li>
+   <% } %>
+   
+<% function sayHello(name){  
+       return "Hello" +" "+ name;
+  } 
+%>
+
+<%  let ans= sayHello(name) %>
+<h2> <%=  ans %>  </h2>
+
+</body>
+</html>
